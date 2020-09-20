@@ -8,7 +8,7 @@ function App() {
   const [filter, setFilter] = useState("");
   const [countries, setCountries] = useState([]);
 
-  const handleFilter = (e) => setFilter(e.target.value);
+  const handleFilter = (e) => setFilter(e);
 
   useEffect(() => {
     getCountries().then((response) => setCountries(response));
@@ -16,7 +16,11 @@ function App() {
   return (
     <>
       <Form filter={filter} handleFilter={handleFilter} />
-      <CountriesDisplay countries={countries} />
+      <CountriesDisplay
+        countries={countries}
+        filter={filter}
+        handleFilter={handleFilter}
+      />
     </>
   );
 }
