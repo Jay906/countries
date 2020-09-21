@@ -1,5 +1,6 @@
 import axios from "axios";
-const url = `http://api.weatherstack.com/current?access_key=7134766cead0eeb695604b7d006a0387&query=`;
+const apiKey = process.env.REACT_APP_API_KEY;
+const url = `http://api.weatherstack.com/current?access_key=${apiKey}&query=`;
 
 async function weatherApi(capital) {
   const response = await axios.get(`${url}${capital}`);
